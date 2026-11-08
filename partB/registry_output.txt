@@ -1,0 +1,37 @@
+{
+  "model_name": "eta-model",
+  "tracking_uri": "sqlite:////home/vedavachan/Downloads/DA3408_DA24B029_5_code/DA3408_DA24B029_5/mlflow.db",
+  "aliases": {
+    "prod": "1",
+    "candidate": "2"
+  },
+  "versions": [
+    {
+      "registry_version": "1",
+      "bundle_version": "v1",
+      "aliases": [
+        "prod"
+      ],
+      "run_id": "6e4a23e58b5f40d19fad09f8fa70b73b",
+      "source": "models:/m-cc3d9ecc39bd4637afc417cff3c05d5e"
+    },
+    {
+      "registry_version": "2",
+      "bundle_version": "v2",
+      "aliases": [
+        "candidate"
+      ],
+      "run_id": "d896ad691d2c46e68d4c0e2b9ed8c48b",
+      "source": "models:/m-b7d05c9495a64dea82e12cc17fc21a77"
+    }
+  ],
+  "pinned_pip_requirements": [
+    "mlflow==3.18.0",
+    "cloudpickle==3.1.2",
+    "numpy==2.5.4",
+    "pandas==3.1.1",
+    "scikit-learn==1.9.1",
+    "scipy==1.18.1",
+    "joblib==1.6.0"
+  ]
+}

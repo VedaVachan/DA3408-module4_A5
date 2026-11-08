@@ -1,0 +1,90 @@
+
+GATE: default
+{
+  "criteria": {
+    "valid_metrics": true,
+    "overall_gain": true,
+    "latency": true,
+    "rush_slice": true,
+    "rain_slice": true
+  },
+  "promote": true,
+  "thresholds": {
+    "min_rel_gain": 0.03,
+    "max_p95_ms": 10.0,
+    "max_slice_regression": 0.05
+  },
+  "registry_aliases": {
+    "prod": "1",
+    "candidate": "2"
+  },
+  "evaluation_rows": 2000,
+  "rush_rows": 571,
+  "rain_rows": 994,
+  "timed_predictions_per_model": 200,
+  "warmup_predictions_per_model": 10,
+  "slice_regression_interpretation": "relative",
+  "latency_method": "in-process pyfunc.predict, prebuilt single-row DataFrames; linear p95",
+  "aliases_changed": false,
+  "metrics": {
+    "prod": {
+      "mae": 11.9553,
+      "mae_rush": 19.679859894921194,
+      "mae_rain": 11.622736418511066,
+      "p95_ms": 7.396197499917889,
+      "bundle_version": "v1"
+    },
+    "candidate": {
+      "mae": 6.104850000000001,
+      "mae_rush": 8.579509632224168,
+      "mae_rain": 6.285311871227364,
+      "p95_ms": 7.270179249871941,
+      "bundle_version": "v2"
+    }
+  }
+}
+
+GATE: strict_gain_60_percent
+{
+  "criteria": {
+    "valid_metrics": true,
+    "overall_gain": false,
+    "latency": true,
+    "rush_slice": true,
+    "rain_slice": true
+  },
+  "promote": false,
+  "thresholds": {
+    "min_rel_gain": 0.6,
+    "max_p95_ms": 10.0,
+    "max_slice_regression": 0.05
+  },
+  "registry_aliases": {
+    "prod": "1",
+    "candidate": "2"
+  },
+  "evaluation_rows": 2000,
+  "rush_rows": 571,
+  "rain_rows": 994,
+  "timed_predictions_per_model": 200,
+  "warmup_predictions_per_model": 10,
+  "slice_regression_interpretation": "relative",
+  "latency_method": "in-process pyfunc.predict, prebuilt single-row DataFrames; linear p95",
+  "aliases_changed": false,
+  "metrics": {
+    "prod": {
+      "mae": 11.9553,
+      "mae_rush": 19.679859894921194,
+      "mae_rain": 11.622736418511066,
+      "p95_ms": 8.26372285010847,
+      "bundle_version": "v1"
+    },
+    "candidate": {
+      "mae": 6.104850000000001,
+      "mae_rush": 8.579509632224168,
+      "mae_rain": 6.285311871227364,
+      "p95_ms": 7.039499699862963,
+      "bundle_version": "v2"
+    }
+  }
+}

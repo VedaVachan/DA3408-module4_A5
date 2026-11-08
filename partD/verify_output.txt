@@ -1,0 +1,43 @@
+=== v1 release (expect 0)
+[PASS] health_and_version: {"status": "ok", "model_version": "v1"}
+[PASS] valid_prediction_version_and_request_id: {"predictions": [32.3]}
+[PASS] batch_order_and_consistency: {"individual_predictions": [32.3, 90.5, 118.8], "batch_predictions": [32.3, 90.5, 118.8]}
+[PASS] sanity_distance: {"feature": "distance_km", "pairs": [{"from": 10.0, "to": 25.0, "baseline_eta_minutes": 32.3, "changed_eta_minutes": 71.0}, {"from": 20.0, "to": 40.0, "baseline_eta_minutes": 90.5, "changed_eta_minutes": 142.1}, {"from": 40.0, "to": 60.0, "baseline_eta_minutes": 118.8, "changed_eta_minutes": 170.4}]}
+[PASS] sanity_traffic: {"feature": "traffic_index", "pairs": [{"from": 0.2, "to": 0.8, "baseline_eta_minutes": 32.3, "changed_eta_minutes": 57.9}, {"from": 0.4, "to": 0.85, "baseline_eta_minutes": 90.5, "changed_eta_minutes": 109.7}, {"from": 0.6, "to": 0.9, "baseline_eta_minutes": 118.8, "changed_eta_minutes": 131.6}]}
+[PASS] invalid_inputs_return_422: {"negative_distance": 422, "empty_batch": 422, "infeasible": 422}
+[PASS] latency_p95: {"successful_requests": 30, "p95_ms": 14.837504450224513, "threshold_ms": 80.0}
+SMOKE GATE: PASS
+exit code: 0
+
+=== wrong version (expect 1)
+[FAIL] health_and_version: "SmokeFailure: Health reports the wrong model version"
+SMOKE GATE: FAIL
+exit code: 1
+
+=== impossible latency (expect 1)
+[PASS] health_and_version: {"status": "ok", "model_version": "v1"}
+[PASS] valid_prediction_version_and_request_id: {"predictions": [32.3]}
+[PASS] batch_order_and_consistency: {"individual_predictions": [32.3, 90.5, 118.8], "batch_predictions": [32.3, 90.5, 118.8]}
+[PASS] sanity_distance: {"feature": "distance_km", "pairs": [{"from": 10.0, "to": 25.0, "baseline_eta_minutes": 32.3, "changed_eta_minutes": 71.0}, {"from": 20.0, "to": 40.0, "baseline_eta_minutes": 90.5, "changed_eta_minutes": 142.1}, {"from": 40.0, "to": 60.0, "baseline_eta_minutes": 118.8, "changed_eta_minutes": 170.4}]}
+[PASS] sanity_traffic: {"feature": "traffic_index", "pairs": [{"from": 0.2, "to": 0.8, "baseline_eta_minutes": 32.3, "changed_eta_minutes": 57.9}, {"from": 0.4, "to": 0.85, "baseline_eta_minutes": 90.5, "changed_eta_minutes": 109.7}, {"from": 0.6, "to": 0.9, "baseline_eta_minutes": 118.8, "changed_eta_minutes": 131.6}]}
+[PASS] invalid_inputs_return_422: {"negative_distance": 422, "empty_batch": 422, "infeasible": 422}
+[FAIL] latency_p95: "SmokeFailure: p95 9.885784 ms exceeds 0.000001 ms"
+SMOKE GATE: FAIL
+exit code: 1
+
+=== unreachable server (expect 1)
+[FAIL] health_and_version: "SmokeFailure: HTTP/JSON failure: URLError: <urlopen error [Errno 111] Connection refused>"
+SMOKE GATE: FAIL
+exit code: 1
+
+=== v2 release (expect 0)
+[PASS] health_and_version: {"status": "ok", "model_version": "v2"}
+[PASS] valid_prediction_version_and_request_id: {"predictions": [35.2]}
+[PASS] batch_order_and_consistency: {"individual_predictions": [35.2, 103.6, 149.2], "batch_predictions": [35.2, 103.6, 149.2]}
+[PASS] sanity_distance: {"feature": "distance_km", "pairs": [{"from": 10.0, "to": 25.0, "baseline_eta_minutes": 35.2, "changed_eta_minutes": 67.9}, {"from": 20.0, "to": 40.0, "baseline_eta_minutes": 103.6, "changed_eta_minutes": 152.5}, {"from": 40.0, "to": 60.0, "baseline_eta_minutes": 149.2, "changed_eta_minutes": 209.6}]}
+[PASS] sanity_traffic: {"feature": "traffic_index", "pairs": [{"from": 0.2, "to": 0.8, "baseline_eta_minutes": 35.2, "changed_eta_minutes": 47.2}, {"from": 0.4, "to": 0.85, "baseline_eta_minutes": 103.6, "changed_eta_minutes": 126.6}, {"from": 0.6, "to": 0.9, "baseline_eta_minutes": 149.2, "changed_eta_minutes": 172.9}]}
+[PASS] invalid_inputs_return_422: {"negative_distance": 422, "empty_batch": 422, "infeasible": 422}
+[PASS] latency_p95: {"successful_requests": 30, "p95_ms": 13.305841499914083, "threshold_ms": 80.0}
+SMOKE GATE: PASS
+exit code: 0
+

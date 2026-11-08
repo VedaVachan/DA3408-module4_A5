@@ -1,0 +1,15 @@
+[
+  {
+    "concurrency": 1,
+    "requests": 458,
+    "rps": 114.5,
+    "p50_ms": 8.3,
+    "p95_ms": 12.2,
+    "p99_ms": 15.8,
+    "errors": 0,
+    "replicas": 1,
+    "versions": {
+      "v1": 458
+    }
+  }
+]

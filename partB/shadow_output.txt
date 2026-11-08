@@ -1,0 +1,11 @@
+Starting prod on port 5101, registry version 1
+Starting candidate on port 5102, registry version 2
+
+SHADOW SUMMARY
+{
+  "paired_requests": 200,
+  "mean_absolute_difference_minutes": 9.4845,
+  "percent_difference_gt_10_minutes": 35.0,
+  "prod_p95_ms": 17.492358550123292,
+  "candidate_p95_ms": 16.60262685002178
+}
